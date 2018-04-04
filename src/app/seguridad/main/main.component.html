@@ -1,0 +1,58 @@
+
+<div class="container">
+  <div class="row bg-primary text-white">
+    <h1>Login</h1>
+  </div>
+  <div class="row">
+    <span>&nbsp;</span>
+  </div>
+  <div class="row">
+    
+    <form class="form-inline" role="form" (ngSubmit)="onLogin()">
+    
+      <div class="form-group">
+        <label class="sr-only" for="">Usuario</label>
+        <input type="text" class="form-control" placeholder="Usuario" name="login" [(ngModel)]="model.usuario.login" >
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for=""></label>
+        <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="model.usuario.password">
+      </div>
+
+      <!-- <button type="submit" class="btn btn-primary" (click)="onLogin()">Login</button> -->
+      <button type="submit" class="btn btn-primary" >Login</button>
+    </form>
+    
+  </div>
+
+  <div class="row">
+    <ul>
+      <li *ngFor="let permiso of model.usuario.permisos;">{{permiso.seleccionado}} - {{permiso.nombre}}</li>
+    </ul>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Codigo</th>
+          <th>Nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor= "let permiso of model.usuario.permisos;">
+          <td>     
+              <input type="checkbox" name="{{permiso.id}}1" [(ngModel)]="permiso.seleccionado">
+          </td>
+          <td>{{permiso.id}}</td>
+          <td>
+              <input type="text" name="{{permiso.id}}" [(ngModel)]="permiso.nombre" >
+          </td>
+        </tr>
+      </tbody>
+       
+     
+    </table>
+  </div>
+
+    
+</div>
